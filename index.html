@@ -1,220 +1,199 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Bolão Loteria Federal</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-  margin: 0;
-}
+  <!-- SEO Básico -->
+  <title>SuperBanca — Jogos Online</title>
+  <meta name="description" content="SuperBanca é uma plataforma moderna de jogos online com experiência fluida, rápida e responsiva. Acesse jogos diretamente pelo navegador." />
+  <meta name="keywords" content="jogos online, apostas online, banca online, cassino online, jogos ao vivo, super banca" />
+  <meta name="author" content="SuperBanca" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.superbanca.net/" />
 
-.hidden { display: none; }
+  <!-- Open Graph -->
+  <meta property="og:title" content="SuperBanca — Jogos Online" />
+  <meta property="og:description" content="Plataforma moderna de jogos online com experiência de aplicativo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.superbanca.net/" />
+  <meta property="og:site_name" content="SuperBanca" />
 
-.container {
-  max-width: 380px;
-  margin: auto;
-  background: #111;
-  padding: 22px;
-  border-radius: 14px;
-  box-shadow: 0 0 20px rgba(0,0,0,.6);
-}
+  <!-- PWA / App-like -->
+  <meta name="theme-color" content="#0b0f19" />
+  <link rel="manifest" href="manifest.json" />
 
-h2, h3 {
-  margin-top: 0;
-  text-align: center;
-}
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #12172a;
+      --primary: #00e0ff;
+      --text: #eaeaf0;
+      --muted: #9aa3b2;
+    }
 
-input, button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: none;
-  font-size: 15px;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-input {
-  background: #1e1e1e;
-  color: #fff;
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(180deg, #070b14, #0b0f19);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-button {
-  background: #00e676;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-}
+    header {
+      background: rgba(11,15,25,0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-button:disabled {
-  background: #555;
-}
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+    }
 
-.status {
-  margin-top: 12px;
-  text-align: center;
-  font-weight: bold;
-}
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 14px;
+    }
 
-.qr img {
-  width: 220px;
-  margin-top: 10px;
-}
+    nav a:hover {
+      color: var(--text);
+    }
 
-.pixkey {
-  word-break: break-all;
-  background: #1c1c1c;
-  padding: 10px;
-  border-radius: 6px;
-  margin-top: 8px;
-  font-size: 13px;
-}
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
 
-/* SALA */
-.sala {
-  max-width: 700px;
-  margin: auto;
-  padding: 20px;
-}
+    .hero {
+      padding: 28px 18px 18px;
+    }
 
-.card {
-  background: #121212;
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 15px;
-}
-</style>
+    .hero h1 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .app-frame {
+      flex: 1;
+      background: #000;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .app-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    footer {
+      background: #070b14;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 14px 18px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 18px;
+      }
+      nav a {
+        margin-left: 10px;
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <div class="logo">SuperBanca</div>
+    <nav>
+      <a href="#jogos">Jogos</a>
+      <a href="#ao-vivo">Ao vivo</a>
+      <a href="#suporte">Suporte</a>
+    </nav>
+  </header>
 
-<!-- LOGIN / PIX -->
-<div class="container" id="loginArea">
-  <h2>🎟️ Bolão Loteria Federal</h2>
+  <main>
+    <section class="hero">
+      <h1>Jogos Online em um só lugar</h1>
+      <p>Experiência rápida, moderna e responsiva. Acesse diretamente como se fosse um aplicativo.</p>
+    </section>
 
-  <input id="nome" placeholder="Seu nome completo">
-  <input id="telefone" placeholder="Telefone / WhatsApp">
+    <section id="jogos" class="app-frame">
+      <iframe
+        src="https://bonus.acertosclub.com/"
+        title="Plataforma de Jogos"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+      </iframe>
+    </section>
+  </main>
 
-  <button onclick="gerarPix()">GERAR PIX</button>
+  <footer>
+    © <span id="year"></span> SuperBanca. Todos os direitos reservados.
+  </footer>
 
-  <div class="status" id="status"></div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  <div class="qr" id="qr"></div>
-</div>
+    // Ajuste de altura para experiência tipo app
+    function resizeFrame() {
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const heroHeight = document.querySelector('.hero').offsetHeight;
+      const footerHeight = document.querySelector('footer').offsetHeight;
+      const frame = document.querySelector('.app-frame');
+      frame.style.height = `calc(100vh - ${headerHeight + heroHeight + footerHeight}px)`;
+    }
 
-<!-- SALA DO BOLÃO -->
-<div class="sala hidden" id="salaBolao">
-  <h2>🎉 Sala do Bolão</h2>
+    window.addEventListener('resize', resizeFrame);
+    window.addEventListener('load', resizeFrame);
+  </script>
 
-  <div class="card">
-    <h3>👤 Bem-vindo</h3>
-    <p id="nomeCliente"></p>
-  </div>
-
-  <div class="card">
-    <h3>👥 Participantes</h3>
-    <ul id="listaParticipantes"></ul>
-  </div>
-
-  <div class="card">
-    <h3>🎯 Palpites</h3>
-    <p>(área pronta para seus palpites)</p>
-  </div>
-</div>
-
-<script>
-const API_URL = 'https://script.google.com/macros/s/AKfycbyyFITAR_NOlCc1zNuML7omJrSZje84pWC9e5zu0-5DNxnmoVcSkHyYzHJujcfC_VzZ/exec';
-
-let paymentId = null;
-let timer = null;
-let nomeCliente = '';
-
-function gerarPix() {
-  nomeCliente = nome.value.trim();
-  const telefoneCliente = telefone.value.trim();
-
-  if (!nomeCliente || !telefoneCliente) {
-    status.innerText = 'Preencha todos os dados';
-    return;
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SuperBanca",
+    "url": "https://www.superbanca.net/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.superbanca.net/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
-
-  status.innerText = 'Gerando PIX...';
-
-  fetch(API_URL, {
-    method: 'POST',
-    body: JSON.stringify({
-      action: 'createPayment',
-      nome: nomeCliente,
-      telefone: telefoneCliente
-    })
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (!data.success) {
-      status.innerText = data.message;
-      return;
-    }
-
-    paymentId = data.paymentId;
-
-    qr.innerHTML = `
-      <img src="data:image/png;base64,${data.qrCodeBase64}">
-      <div class="pixkey">${data.pixKey}</div>
-    `;
-
-    status.innerText = '⏳ Aguardando pagamento...';
-    timer = setInterval(verificarPagamento, 5000);
-  })
-  .catch(() => {
-    status.innerText = 'Erro de conexão com o servidor';
-  });
-}
-
-function verificarPagamento() {
-  fetch(API_URL, {
-    method: 'POST',
-    body: JSON.stringify({
-      action: 'checkPayment',
-      paymentId: paymentId
-    })
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.status === 'PAID') {
-      clearInterval(timer);
-      status.innerText = '✅ Pagamento aprovado!';
-      entrarNaSala();
-    }
-  });
-}
-
-function entrarNaSala() {
-  document.getElementById('loginArea').classList.add('hidden');
-  document.getElementById('salaBolao').classList.remove('hidden');
-  document.getElementById('nomeCliente').innerText = nomeCliente;
-
-  carregarParticipantes();
-}
-
-function carregarParticipantes() {
-  fetch(API_URL + '?action=infoBolao')
-    .then(r => r.json())
-    .then(data => {
-      const ul = document.getElementById('listaParticipantes');
-      ul.innerHTML = '';
-
-      data.participantes.forEach(p => {
-        const li = document.createElement('li');
-        li.textContent = `${p.nome} - ${p.telefone}`;
-        ul.appendChild(li);
-      });
-    });
-}
-</script>
-
+  </script>
 </body>
 </html>
