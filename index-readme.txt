@@ -1,0 +1,1 @@
+Pacote SEO SuperBancas - envie todos os arquivos para o GitHub Pages.
