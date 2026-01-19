@@ -2,139 +2,166 @@
 <html lang="pt-BR">
 <head>
 
+<!-- =================== SEO BÁSICO =================== -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>SuperBancas ⭐ Plataforma Oficial de Jogos Online | Superbanca.net</title>
+
+<meta name="description" content="SuperBancas é a plataforma oficial de jogos online em tela cheia, rápida, segura e responsiva. Acesse agora a SuperBanca profissional.">
+<meta name="keywords" content="superbancas, superbanca, super bancas, banca online, jogos online, plataforma de jogos, app de apostas">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.superbanca.net/">
+
+<!-- =================== OPEN GRAPH =================== -->
+<meta property="og:title" content="SuperBancas — Plataforma Oficial de Jogos Online">
+<meta property="og:description" content="Jogue online na SuperBancas com experiência profissional tipo aplicativo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.superbanca.net/">
+<meta property="og:image" content="https://www.superbanca.net/assets/og-superbancas.jpg">
+
+<!-- =================== PWA / APP FEEL =================== -->
+<meta name="theme-color" content="#070b14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- =================== MONETAG =================== -->
 <meta name="monetag" content="c9decff8d3101c827a56f6907203431e">
 
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<!-- =================== SCHEMA MARKUP =================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SuperBancas",
+  "url": "https://www.superbanca.net/",
+  "alternateName": ["SuperBanca", "Super Bancas"],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.superbanca.net/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
-  <title>SuperBanca — Plataforma de Jogos</title>
-  <meta name="description" content="SuperBanca é uma plataforma moderna de jogos online com experiência 100% em tela cheia, fluida e responsiva como um aplicativo." />
-  <meta name="keywords" content="jogos online, apostas online, banca online, plataforma de jogos" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.superbanca.net/" />
+<style>
+body {
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background:#070b14;
+  color:#eaeaea;
+}
+header {
+  padding:20px;
+  text-align:center;
+}
+main {
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+iframe {
+  width:100%;
+  height:80vh;
+  border:none;
+  border-radius:14px;
+}
+section {
+  margin-top:40px;
+}
+h1,h2,h3 {
+  color:#ffffff;
+}
+p,li {
+  line-height:1.6;
+}
+footer {
+  margin-top:60px;
+  padding:20px;
+  text-align:center;
+  font-size:14px;
+  color:#aaa;
+}
+nav a {
+  color:#00c4ff;
+  margin:0 10px;
+  text-decoration:none;
+}
+</style>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="SuperBanca — Plataforma de Jogos" />
-  <meta property="og:description" content="Acesse jogos online em uma experiência profissional tipo aplicativo." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.superbanca.net/" />
-
-  <!-- App / PWA feel -->
-  <meta name="theme-color" content="#070b14" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      background: #000;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      overflow: hidden;
-    }
-
-    /* App Container */
-    .app {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      background: #000;
-    }
-
-    /* Top App Bar */
-    .topbar {
-      height: 56px;
-      background: rgba(7,11,20,0.85);
-      backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #00e0ff;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      z-index: 10;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    /* Fullscreen Frame */
-    .frame-wrapper {
-      flex: 1;
-      position: relative;
-      background: #000;
-    }
-
-    iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      background: #000;
-    }
-
-    /* Bottom Safe Area (mobile gesture space) */
-    .safe-bottom {
-      height: env(safe-area-inset-bottom);
-      background: #000;
-    }
-
-    /* Loading Overlay */
-    .loading {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, #05070c, #000);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #00e0ff;
-      font-size: 14px;
-      letter-spacing: 1px;
-      z-index: 5;
-      animation: fadeOut 0.6s ease forwards;
-      animation-delay: 2s;
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-  </style>
 </head>
+
 <body>
 
-  <div class="app">
-    <div class="topbar">SuperBanca</div>
+<header>
+  <h1>SuperBancas – Plataforma Completa de Jogos Online</h1>
+  <nav>
+    <a href="#jogos">Jogos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#seguranca">Segurança</a>
+  </nav>
+</header>
 
-    <div class="frame-wrapper">
-      <div class="loading">CARREGANDO PLATAFORMA...</div>
-      <iframe
-        src="https://bonus.acertosclub.com/"
-        title="SuperBanca Plataforma"
-        loading="eager"
-        referrerpolicy="no-referrer"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
-      </iframe>
-    </div>
+<main>
 
-    <div class="safe-bottom"></div>
-  </div>
+<!-- =================== IFRAME PRINCIPAL =================== -->
+<section id="jogos">
+  <iframe 
+    src="https://bonus.ac" 
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+</section>
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "SuperBanca",
-    "url": "https://www.superbanca.net/"
-  }
-  </script>
+<!-- =================== CONTEÚDO SEO =================== -->
+<section id="sobre">
+  <h2>O que é a SuperBancas?</h2>
+  <p>
+    A <strong>SuperBancas</strong> é uma plataforma moderna de jogos online,
+    desenvolvida para oferecer uma experiência fluida, rápida e responsiva,
+    funcionando como um aplicativo diretamente no navegador.
+  </p>
+</section>
+
+<section id="como-funciona">
+  <h2>Como funciona a SuperBanca?</h2>
+  <p>
+    A SuperBanca permite que usuários acessem jogos online em tela cheia,
+    sem necessidade de downloads, com interface intuitiva e desempenho
+    otimizado para dispositivos móveis e computadores.
+  </p>
+  <ul>
+    <li>Interface profissional</li>
+    <li>Compatível com Android, iOS e PC</li>
+    <li>Experiência tipo aplicativo</li>
+    <li>Acesso rápido e estável</li>
+  </ul>
+</section>
+
+<section id="seguranca">
+  <h2>SuperBancas é confiável?</h2>
+  <p>
+    Sim. A SuperBancas utiliza tecnologias modernas para garantir estabilidade,
+    desempenho e navegação segura, oferecendo uma experiência confiável para
+    todos os usuários.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 SuperBancas — Plataforma Oficial de Jogos Online</p>
+  <p>
+    <a href="/termos.html">Termos</a> |
+    <a href="/privacidade.html">Privacidade</a> |
+    <a href="/suporte.html">Suporte</a>
+  </p>
+</footer>
+
+<!-- =================== MONETAG SCRIPT =================== -->
+<script async src="https://monetag.com/script.js"></script>
 
 </body>
 </html>
