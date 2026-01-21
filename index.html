@@ -42,25 +42,33 @@
   <meta name="monetag" content="c9decff8d3101c827a56f6907203431e">
 
   <!-- Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.superbanca.net/#website",
+  "url": "https://www.superbanca.net/",
+  "name": "SuperBancas",
+  "alternateName": ["SuperBanca", "Super Bancas", "Sistema Trivo"],
+  "description": "Plataforma oficial do sistema Trivo para apostas online, cassino, Fortune Tiger, jogo do tigrinho, AcertosClub, Banca Tiger Club e mais bancas profissionais.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.superbanca.net/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://www.superbanca.net/#organization",
     "name": "SuperBancas",
     "url": "https://www.superbanca.net/",
-    "alternateName": ["SuperBanca", "Super Bancas", "Sistema Trivo", "Fortune Tiger Plataforma"],
-    "description": "Plataforma oficial sistema Trivo 2026 com apostas online, cassino online, Fortune Tiger, jogo do tigrinho, AcertosClub, Banca FeiticeiraClub, Banca Tiger Club, Banca Águia Oficial, Banca Brasileira.",
-    "keywords": ["superbancas", "sistema trivo", "fortune tiger", "jogo do tigrinho", "acertosclub", "banca feiticeiraclub", "banca tiger club", "apostas online brasil", "cassino online"],
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://www.superbanca.net/search?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
+    "logo": "https://www.superbanca.net/assets/logo-superbancas.png"  // Adicione uma imagem real de logo 200x60 ou maior
+  },
+  "inLanguage": "pt-BR"
+}
+</script>
 
   <style>
     :root {
