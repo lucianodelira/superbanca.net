@@ -1,137 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SuperBancas ⭐ Jogos Online</title>
 
-  <!-- META BÁSICO -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>SuperBancas ⭐ Plataforma Oficial de Jogos Online 2026</title>
+<!-- MONETAG SITE ID (NECESSÁRIO PARA PUSH) -->
+<meta name="monetag" content="c9decff8d3101c827a56f6907203431e">
 
-  <!-- SEO -->
-  <meta name="description" content="SuperBancas: plataforma oficial do sistema Trivo com apostas online, cassino, Fortune Tiger, Aviator, Mines e muito mais.">
-  <link rel="canonical" href="https://www.superbanca.net/">
+<!-- MONETAG ONCLICK / INTERSTITIAL -->
+<script src="https://3nbf4.com/act/files/tag.min.js?z=10577632" data-cfasync="false"></script>
 
-  <!-- PWA -->
-  <meta name="theme-color" content="#070b14">
-  <link rel="manifest" href="/manifest.json">
+<style>
+:root{
+  --primary:#00c4ff;
+  --bg:#070b14;
+  --text:#eaeaea;
+}
 
-  <!-- MONETAG ONCLICK (APENAS UMA VEZ) -->
-  <script src="https://3nbf4.com/act/files/tag.min.js?z=10577632" data-cfasync="false"></script>
+*{margin:0;padding:0;box-sizing:border-box}
 
-  <style>
-    :root {
-      --primary:#00c4ff;
-      --bg:#070b14;
-      --text:#eaeaea;
-    }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+  min-height:100vh;
+}
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-      background:var(--bg);
-      color:var(--text);
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-    }
+header{
+  padding:18px;
+  text-align:center;
+  background:#0a111e;
+}
 
-    header{
-      padding:20px;
-      text-align:center;
-      background:#0a111e;
-      position:sticky;
-      top:0;
-      z-index:10;
-    }
+.btn{
+  display:block;
+  margin:24px auto;
+  padding:16px 28px;
+  font-size:18px;
+  font-weight:700;
+  border-radius:50px;
+  border:none;
+  cursor:pointer;
+  background:var(--primary);
+  color:#000;
+}
 
-    header h1{font-size:1.6rem;color:#fff}
+.game-wrapper{
+  position:relative;
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  display:none;
+}
 
-    main{
-      flex:1;
-      max-width:1200px;
-      margin:0 auto;
-      padding:20px;
-      width:100%;
-    }
+iframe{
+  width:100%;
+  height:80vh;
+  border:none;
+  border-radius:16px;
+}
 
-    .cta{
-      background:var(--primary);
-      color:#000;
-      border:none;
-      padding:16px 28px;
-      font-size:18px;
-      font-weight:700;
-      border-radius:50px;
-      cursor:pointer;
-      margin:20px auto;
-      display:block;
-    }
+.fullscreen-btn{
+  position:absolute;
+  bottom:16px;
+  right:16px;
+  z-index:30;
+  background:rgba(0,0,0,.7);
+  color:#fff;
+  border:none;
+  padding:12px 18px;
+  border-radius:30px;
+  cursor:pointer;
+}
 
-    .iframe-container{
-      display:none;
-      margin-top:20px;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:0 8px 30px rgba(0,0,0,.6);
-    }
+.ad-overlay{
+  position:absolute;
+  inset:0;
+  z-index:25;
+  background:rgba(0,0,0,0);
+  cursor:pointer;
+}
 
-    iframe{
-      width:100%;
-      height:80vh;
-      border:none;
-    }
+.game-wrapper.fullscreen{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#000;
+}
 
-    footer{
-      text-align:center;
-      padding:20px;
-      background:#04080f;
-      font-size:14px;
-      color:#aaa;
-    }
-  </style>
+.game-wrapper.fullscreen iframe{
+  height:100vh;
+  border-radius:0;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>SuperBancas – Plataforma Oficial de Jogos Online</h1>
+  <h1>SuperBancas – Plataforma Oficial</h1>
 </header>
 
-<main>
+<button class="btn" id="playBtn">🎮 Jogar Agora</button>
 
-  <p style="text-align:center;margin-bottom:10px">
-    Clique para acessar Fortune Tiger, Aviator, Mines e apostas esportivas.
-  </p>
+<div class="game-wrapper" id="gameBox">
 
-  <!-- BOTÃO QUE DISPARA A MONETAG -->
-  <button class="cta" id="startGame">
-    🎮 Jogar Agora
-  </button>
+  <!-- INTERSTITIAL / ONCLICK (1x POR SESSÃO) -->
+  <div class="ad-overlay" id="adOverlay"></div>
 
-  <!-- IFRAME (CARREGA SÓ DEPOIS DO CLIQUE) -->
-  <div class="iframe-container" id="gameBox">
-    <iframe 
-      src="https://www.zepitaco.com"
-      allow="fullscreen; autoplay; encrypted-media"
-      allowfullscreen
-      sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
-    </iframe>
-  </div>
+  <iframe
+    id="gameIframe"
+    src="https://www.zepitaco.com"
+    allow="fullscreen; autoplay; encrypted-media"
+    allowfullscreen
+    sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
+  </iframe>
 
-</main>
-
-<footer>
-  © 2026 SuperBancas — Jogo Responsável 18+
-</footer>
+  <button class="fullscreen-btn" id="fsBtn">⛶ Tela Cheia</button>
+</div>
 
 <script>
-  const btn = document.getElementById("startGame");
-  const box = document.getElementById("gameBox");
+/* ===============================
+   CONTROLE DE FREQUÊNCIA (1x)
+================================ */
+const adKey = "monetag_ad_shown";
 
-  btn.addEventListener("click", () => {
-    btn.style.display = "none";
-    box.style.display = "block";
-  }, { once: true });
+/* ===============================
+   ELEMENTOS
+================================ */
+const playBtn = document.getElementById("playBtn");
+const gameBox = document.getElementById("gameBox");
+const fsBtn = document.getElementById("fsBtn");
+const adOverlay = document.getElementById("adOverlay");
+
+/* ===============================
+   BOTÃO JOGAR (DISPARA INTERSTITIAL)
+================================ */
+playBtn.addEventListener("click", () => {
+  playBtn.style.display = "none";
+  gameBox.style.display = "block";
+
+  if (!sessionStorage.getItem(adKey)) {
+    sessionStorage.setItem(adKey, "1");
+
+    /* Overlay ativo por 1 clique */
+    adOverlay.style.display = "block";
+
+    setTimeout(() => {
+      adOverlay.style.display = "none";
+    }, 1200);
+  } else {
+    adOverlay.style.display = "none";
+  }
+}, { once:true });
+
+/* ===============================
+   FULLSCREEN REAL
+================================ */
+fsBtn.addEventListener("click", () => {
+  gameBox.classList.add("fullscreen");
+
+  if (gameBox.requestFullscreen) gameBox.requestFullscreen();
+  else if (gameBox.webkitRequestFullscreen) gameBox.webkitRequestFullscreen();
+});
+
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement) {
+    gameBox.classList.remove("fullscreen");
+  }
+});
+
+/* ===============================
+   PUSH MONETAG
+   (ativa apenas 1x por sessão)
+================================ */
+if (!sessionStorage.getItem("monetag_push")) {
+  sessionStorage.setItem("monetag_push", "1");
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/monetag-sw.js").catch(()=>{});
+  }
+
+  const s = document.createElement("script");
+  s.src = "https://monetag.com/push.js";
+  s.async = true;
+  document.body.appendChild(s);
+}
 </script>
 
 </body>
