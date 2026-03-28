@@ -194,6 +194,44 @@ if (!sessionStorage.getItem("monetag_push")) {
   document.body.appendChild(s);
 }
 </script>
+<!-- IFRAME OVERLAY FULLSCREEN -->
+<style>
+#iframeOverlayFull {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background: #000;
+  display: none;
+}
 
+#iframeOverlayFull iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+</style>
+
+<div id="iframeOverlayFull">
+  <iframe
+    src="https://www.zepitaco.com"
+    allow="fullscreen; autoplay; encrypted-media"
+    allowfullscreen
+    sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals allow-downloads">
+  </iframe>
+</div>
+
+<script>
+/* ATIVAR AUTOMATICAMENTE */
+window.addEventListener("load", () => {
+  document.getElementById("iframeOverlayFull").style.display = "block";
+});
+
+/* OPCIONAL: FECHAR COM VOLTAR DO CELULAR */
+window.addEventListener("popstate", () => {
+  document.getElementById("iframeOverlayFull").style.display = "none";
+});
+</script>
 </body>
 </html>
