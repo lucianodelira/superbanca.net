@@ -2,112 +2,224 @@
 <html lang="pt-BR">
 <head>
 
+<!-- MONETAG -->
+<script>
+(function(s){
+  s.dataset.zone='10577631',
+  s.src='https://al5sm.com/tag.min.js'
+})
+([document.documentElement, document.body]
+.filter(Boolean)
+.pop()
+.appendChild(document.createElement('script')))
+</script>
 
-<script>(function(s){s.dataset.zone='10577631',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-
-
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 <title>SuperBancas ⭐ Jogos Online</title>
 
-
 <style>
+
 :root{
   --primary:#00c4ff;
   --bg:#070b14;
   --text:#eaeaea;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   min-height:100vh;
+  overflow-x:hidden;
 }
 
+/* HEADER */
 header{
-  padding:18px;
+  padding:22px 15px;
   text-align:center;
   background:#0a111e;
+  box-shadow:0 2px 12px rgba(0,0,0,.4);
 }
 
+header h1{
+  font-size:42px;
+  font-weight:800;
+  color:#fff;
+}
+
+/* BOTÃO */
 .btn{
   display:block;
-  margin:24px auto;
-  padding:16px 28px;
-  font-size:18px;
-  font-weight:700;
-  border-radius:50px;
+  margin:28px auto 20px auto;
+  padding:18px 34px;
+  font-size:22px;
+  font-weight:800;
+  border-radius:60px;
   border:none;
   cursor:pointer;
   background:var(--primary);
   color:#000;
+  transition:.3s;
+  box-shadow:0 0 20px rgba(0,196,255,.35);
 }
 
+.btn:hover{
+  transform:scale(1.05);
+}
+
+/* BANNER */
+.banner-container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding:0 14px;
+  margin-bottom:24px;
+}
+
+.banner-container img{
+  width:100%;
+  max-width:950px;
+  border-radius:22px;
+  box-shadow:0 0 30px rgba(0,196,255,.25);
+}
+
+/* GAME */
 .game-wrapper{
   position:relative;
   width:100%;
   max-width:1200px;
-  margin:0 auto;
+  margin:0 auto 30px auto;
   display:none;
+  padding:0 10px;
 }
 
 iframe{
   width:100%;
-  height:80vh;
+  height:82vh;
   border:none;
-  border-radius:16px;
+  border-radius:18px;
+  background:#000;
 }
 
+/* FULLSCREEN BUTTON */
 .fullscreen-btn{
   position:absolute;
-  bottom:16px;
-  right:16px;
+  bottom:26px;
+  right:26px;
   z-index:30;
-  background:rgba(0,0,0,.7);
+  background:rgba(0,0,0,.75);
   color:#fff;
   border:none;
-  padding:12px 18px;
-  border-radius:30px;
+  padding:14px 20px;
+  border-radius:40px;
   cursor:pointer;
+  font-size:16px;
+  font-weight:700;
+  backdrop-filter:blur(4px);
 }
 
+/* OVERLAY AD */
 .ad-overlay{
   position:absolute;
   inset:0;
   z-index:25;
   background:rgba(0,0,0,0);
   cursor:pointer;
+  display:none;
 }
 
+/* FULLSCREEN MODE */
 .game-wrapper.fullscreen{
   position:fixed;
   inset:0;
   z-index:9999;
   background:#000;
+  max-width:100%;
+  padding:0;
 }
 
 .game-wrapper.fullscreen iframe{
   height:100vh;
   border-radius:0;
 }
+
+/* OVERLAY FULLSCREEN */
+#iframeOverlayFull{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:999999;
+  background:#000;
+  display:none;
+}
+
+#iframeOverlayFull iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  header h1{
+    font-size:26px;
+  }
+
+  .btn{
+    width:90%;
+    font-size:20px;
+    padding:16px;
+  }
+
+  iframe{
+    height:78vh;
+  }
+
+  .fullscreen-btn{
+    bottom:18px;
+    right:18px;
+    font-size:14px;
+    padding:12px 16px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- TOPO -->
 <header>
   <h1>SuperBancas – Plataforma Oficial</h1>
 </header>
 
-<button class="btn" id="playBtn">🎮 Jogar Agora</button>
+<!-- BOTÃO -->
+<button class="btn" id="playBtn">
+  🎮 Jogar Agora
+</button>
 
+<!-- BANNER ABAIXO DO BOTÃO -->
+<div class="banner-container">
+  <img
+    src="https://superbancas.com.br/banner.png"
+    alt="Banner SuperBancas">
+</div>
+
+<!-- GAME -->
 <div class="game-wrapper" id="gameBox">
 
-  <!-- INTERSTITIAL / ONCLICK (1x POR SESSÃO) -->
+  <!-- INTERSTITIAL -->
   <div class="ad-overlay" id="adOverlay"></div>
 
   <iframe
@@ -118,101 +230,124 @@ iframe{
     sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
   </iframe>
 
-  <button class="fullscreen-btn" id="fsBtn">⛶ Tela Cheia</button>
+  <button class="fullscreen-btn" id="fsBtn">
+    ⛶ Tela Cheia
+  </button>
+
 </div>
 
-<script>
-/* ===============================
-   CONTROLE DE FREQUÊNCIA (1x)
-================================ */
-const adKey = "monetag_ad_shown";
-
-/* ===============================
-   ELEMENTOS
-================================ */
-const playBtn = document.getElementById("playBtn");
-const gameBox = document.getElementById("gameBox");
-const fsBtn = document.getElementById("fsBtn");
-const adOverlay = document.getElementById("adOverlay");
-
-/* ===============================
-   BOTÃO JOGAR (DISPARA INTERSTITIAL)
-================================ */
-playBtn.addEventListener("click", () => {
-  playBtn.style.display = "none";
-  gameBox.style.display = "block";
-
-  if (!sessionStorage.getItem(adKey)) {
-    sessionStorage.setItem(adKey, "1");
-
-    /* Overlay ativo por 1 clique */
-    adOverlay.style.display = "block";
-
-    setTimeout(() => {
-      adOverlay.style.display = "none";
-    }, 1200);
-  } else {
-    adOverlay.style.display = "none";
-  }
-}, { once:true });
-
-/* ===============================
-   FULLSCREEN REAL
-================================ */
-fsBtn.addEventListener("click", () => {
-  gameBox.classList.add("fullscreen");
-
-  if (gameBox.requestFullscreen) gameBox.requestFullscreen();
-  else if (gameBox.webkitRequestFullscreen) gameBox.webkitRequestFullscreen();
-});
-
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement) {
-    gameBox.classList.remove("fullscreen");
-  }
-});
-
-/* ===============================
-   PUSH MONETAG
-
-<!-- IFRAME OVERLAY FULLSCREEN -->
-<style>
-#iframeOverlayFull {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999999;
-  background: #000;
-  display: none;
-}
-
-#iframeOverlayFull iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-</style>
-
+<!-- OVERLAY FULLSCREEN -->
 <div id="iframeOverlayFull">
+
   <iframe
     src="https://www.zepitaco.com"
     allow="fullscreen; autoplay; encrypted-media"
     allowfullscreen
     sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals allow-downloads">
   </iframe>
+
 </div>
 
 <script>
-/* ATIVAR AUTOMATICAMENTE */
-window.addEventListener("load", () => {
-  document.getElementById("iframeOverlayFull").style.display = "block";
+
+/* ===============================
+   CONTROLE DE FREQUÊNCIA
+================================ */
+
+const adKey = "monetag_ad_shown";
+
+/* ===============================
+   ELEMENTOS
+================================ */
+
+const playBtn = document.getElementById("playBtn");
+const gameBox = document.getElementById("gameBox");
+const fsBtn = document.getElementById("fsBtn");
+const adOverlay = document.getElementById("adOverlay");
+
+/* ===============================
+   BOTÃO JOGAR
+================================ */
+
+playBtn.addEventListener("click", () => {
+
+  playBtn.style.display = "none";
+
+  gameBox.style.display = "block";
+
+  if (!sessionStorage.getItem(adKey)) {
+
+    sessionStorage.setItem(adKey, "1");
+
+    adOverlay.style.display = "block";
+
+    setTimeout(() => {
+      adOverlay.style.display = "none";
+    }, 1200);
+
+  } else {
+
+    adOverlay.style.display = "none";
+
+  }
+
+}, { once:true });
+
+/* ===============================
+   FULLSCREEN REAL
+================================ */
+
+fsBtn.addEventListener("click", () => {
+
+  gameBox.classList.add("fullscreen");
+
+  if (gameBox.requestFullscreen) {
+
+    gameBox.requestFullscreen();
+
+  } else if (gameBox.webkitRequestFullscreen) {
+
+    gameBox.webkitRequestFullscreen();
+
+  }
+
 });
 
-/* OPCIONAL: FECHAR COM VOLTAR DO CELULAR */
-window.addEventListener("popstate", () => {
-  document.getElementById("iframeOverlayFull").style.display = "none";
+/* ===============================
+   SAIU DO FULLSCREEN
+================================ */
+
+document.addEventListener("fullscreenchange", () => {
+
+  if (!document.fullscreenElement) {
+
+    gameBox.classList.remove("fullscreen");
+
+  }
+
 });
+
+/* ===============================
+   OVERLAY AUTOMÁTICO
+================================ */
+
+window.addEventListener("load", () => {
+
+  document.getElementById("iframeOverlayFull").style.display = "block";
+
+});
+
+/* ===============================
+   FECHAR AO VOLTAR
+================================ */
+
+window.addEventListener("popstate", () => {
+
+  document.getElementById("iframeOverlayFull").style.display = "none";
+
+});
+
 </script>
+
 </body>
 </html>
