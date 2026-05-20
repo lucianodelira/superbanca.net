@@ -2,18 +2,6 @@
 <html lang="pt-BR">
 <head>
 
-<!-- MONETAG -->
-<script>
-(function(s){
-  s.dataset.zone='10577631',
-  s.src='https://al5sm.com/tag.min.js'
-})
-([document.documentElement, document.body]
-.filter(Boolean)
-.pop()
-.appendChild(document.createElement('script')))
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
@@ -126,16 +114,6 @@ iframe{
   backdrop-filter:blur(4px);
 }
 
-/* OVERLAY AD */
-.ad-overlay{
-  position:absolute;
-  inset:0;
-  z-index:25;
-  background:rgba(0,0,0,0);
-  cursor:pointer;
-  display:none;
-}
-
 /* FULLSCREEN MODE */
 .game-wrapper.fullscreen{
   position:fixed;
@@ -209,7 +187,7 @@ iframe{
   🎮 Jogar Agora
 </button>
 
-<!-- BANNER ABAIXO DO BOTÃO -->
+<!-- BANNER -->
 <div class="banner-container">
   <img
     src="https://superbancas.com.br/banner.png"
@@ -218,9 +196,6 @@ iframe{
 
 <!-- GAME -->
 <div class="game-wrapper" id="gameBox">
-
-  <!-- INTERSTITIAL -->
-  <div class="ad-overlay" id="adOverlay"></div>
 
   <iframe
     id="gameIframe"
@@ -251,19 +226,12 @@ iframe{
 <script>
 
 /* ===============================
-   CONTROLE DE FREQUÊNCIA
-================================ */
-
-const adKey = "monetag_ad_shown";
-
-/* ===============================
    ELEMENTOS
 ================================ */
 
 const playBtn = document.getElementById("playBtn");
 const gameBox = document.getElementById("gameBox");
 const fsBtn = document.getElementById("fsBtn");
-const adOverlay = document.getElementById("adOverlay");
 
 /* ===============================
    BOTÃO JOGAR
@@ -271,25 +239,16 @@ const adOverlay = document.getElementById("adOverlay");
 
 playBtn.addEventListener("click", () => {
 
+  /* ABRE SEU LINK */
+  window.open(
+    "https://www.superbancas.link",
+    "_blank"
+  );
+
+  /* MOSTRA O GAME */
   playBtn.style.display = "none";
 
   gameBox.style.display = "block";
-
-  if (!sessionStorage.getItem(adKey)) {
-
-    sessionStorage.setItem(adKey, "1");
-
-    adOverlay.style.display = "block";
-
-    setTimeout(() => {
-      adOverlay.style.display = "none";
-    }, 1200);
-
-  } else {
-
-    adOverlay.style.display = "none";
-
-  }
 
 }, { once:true });
 
