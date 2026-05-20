@@ -11,11 +11,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>SuperBancas ⭐ Jogos Online</title>
 
-<!-- MONETAG SITE ID (NECESSÁRIO PARA PUSH) -->
-<meta name="monetag" content="c9decff8d3101c827a56f6907203431e">
-
-<!-- MONETAG ONCLICK / INTERSTITIAL -->
-<script src="https://3nbf4.com/act/files/tag.min.js?z=10577632" data-cfasync="false"></script>
 
 <style>
 :root{
@@ -117,7 +112,7 @@ iframe{
 
   <iframe
     id="gameIframe"
-    src="https://www.zepitaco.com"
+    src="https://app.superbancas.club/pr/Q3WZ1haO"
     allow="fullscreen; autoplay; encrypted-media"
     allowfullscreen
     sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
@@ -179,21 +174,7 @@ document.addEventListener("fullscreenchange", () => {
 
 /* ===============================
    PUSH MONETAG
-   (ativa apenas 1x por sessão)
-================================ */
-if (!sessionStorage.getItem("monetag_push")) {
-  sessionStorage.setItem("monetag_push", "1");
 
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/monetag-sw.js").catch(()=>{});
-  }
-
-  const s = document.createElement("script");
-  s.src = "https://monetag.com/push.js";
-  s.async = true;
-  document.body.appendChild(s);
-}
-</script>
 <!-- IFRAME OVERLAY FULLSCREEN -->
 <style>
 #iframeOverlayFull {
